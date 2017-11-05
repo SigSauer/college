@@ -1,24 +1,21 @@
 package study.Alias;
 
-public class Words {
-    private int codeword;
-    private String word;
 
-    public Words(int codeword, String word) {
-        this.codeword = codeword;
+public class Words {
+   private int wordID;
+   private String word;
+
+    public Words() {
+        this.wordID = wordID;
         this.word = word;
     }
 
-    public Words() {
-
+    public int getWordID() {
+        return wordID;
     }
 
-    public int getCodeword() {
-        return codeword;
-    }
-
-    public void setCodeword(int codeword) {
-        this.codeword = codeword;
+    public void setWordID(int wordID) {
+        this.wordID = wordID;
     }
 
     public String getWord() {
@@ -36,26 +33,23 @@ public class Words {
 
         Words words = (Words) o;
 
-        if (codeword != words.codeword) return false;
+        if (wordID != words.wordID) return false;
         return word != null ? word.equals(words.word) : words.word == null;
     }
 
     @Override
     public int hashCode() {
-        int result = codeword;
+        int result = wordID;
         result = 31 * result + (word != null ? word.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return ""+word;
+        return ""+ word;
     }
 
-    public String[] WW = new String[] {"",
-            "",
-            "",
-            ""
-            };
+
+
 }
 

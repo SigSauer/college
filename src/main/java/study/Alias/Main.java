@@ -1,7 +1,7 @@
 package study.Alias;
 
-
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,37 +12,32 @@ import java.util.Scanner;
 public class Main {
     private static List<Words> wordsList = new ArrayList<Words>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Main main = new Main();
 
         main.menu();
-        main.getAllWords();
     }
 
-    private void menu() {
-
+    private void menu() throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         boolean exit = true;
         while (exit) {
-            System.out.println("Welcome to Alias Console Game (Created by SigSauer on 05.11.2017)");
-            System.out.println("The ACG under alpha-testing: You can delete words, which are EBANIENAHUY to your opinion,");
-            System.out.println("using \"del\" command  (Not working)");
+            System.out.println();
+            System.out.println("Welcome to Alias Console Game (Created by SigSauer on 05.11.2017 - 09.11.2017)");
+            System.out.println("The ACG under alpha-testing");
+            add(getWordDefault());
             System.out.println("Choose one of the options:");
-            System.out.println("1. Loading");
-            System.out.println("2. Start game (Not working)");
-            System.out.println("3. Print all words");
-            System.out.println("4. Exit \n");
+            System.out.println("1. Start game ");
+            System.out.println("2. Print all words");
+            System.out.println("3. Exit \n");
                 switch (sc.nextInt()) {
                     case 1:
-                        add(getWordDefault());
-                        break;
-                    case 2:
                         game();
                         break;
-                    case 3:
+                    case 2:
                         getAllWords();
                         break;
-                    case 4:
+                    case 3:
                         System.out.println("Thank you for the game =)");
                         exit = false;
                         break;
@@ -61,7 +56,7 @@ public class Main {
         for (int i = 0; i < wordDefault.length; i++) {
             wordsList.add(addWords(i,wordDefault[i]));
         }
-        System.out.println("The game are ready");
+        System.out.println("The game is ready");
     }
 
 
@@ -78,10 +73,63 @@ public class Main {
         }
     }
 
-
-    private void game(){
-
+    private void outword() {
+        System.out.println("-----------------------------------------------------");
+        System.out.println("                  "+wordRand()+"                     ");
+        System.out.println("-----------------------------------------------------");
     }
+
+
+    private void game() throws InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        int[] player =  new int[]{0, 0};
+        int point = 0;
+        System.out.println("Set time:");
+        int settime = sc.nextInt();
+        if(settime < 0) {
+            System.out.println("Wrong time, try again");
+            game();
+        } else if(settime == 0) menu();
+        System.out.println("If ur answer is true: \"1\",if false: \"0\" ");
+        for (int i = 1; i <= 2; i++) {
+
+            System.out.println("Now playing Player "+i+": ");
+            long timeBegin = System.currentTimeMillis();
+            long timeEnd = timeBegin+(settime+2)*1000;
+            while(timeEnd >= System.currentTimeMillis()) {
+                outword();
+                try {
+                    if (sc.nextInt() == 1) point++;
+                    else point += 0;
+                } catch (InputMismatchException ignored) {}
+            }
+            System.out.println("Time is out");
+            try {
+                player[i] = point;
+            }   catch (ArrayIndexOutOfBoundsException ignored) {}
+
+        } winner(player);
+        menu();
+    }
+
+    private String wordRand(){
+        int number = (int) ((Math.random()*wordsList.size())+1);
+        return String.valueOf(wordsList.get(number));
+    }
+
+    private void winner(int[] win) {
+        if (win[0] > win[1]) System.out.println("Player 1 is WIN");
+            else if (win[1] > win[0]) System.out.println("Player 2 is WIN");
+            else System.out.println("ghjkl");
+        }
+
+
+    private String[] getWordDefault() {
+        return wordDefault;
+    }
+
+    //private String[] wordUser;
+
 
     final private String[] wordDefault = new String[] {
             "автобус", "автомат", "автомобиль", "автор", "агентство", "адвокат", "администрация", "адрес", "академия", "акт",
@@ -185,11 +233,5 @@ public class Main {
             "элемент", "энергия", "эпоха", "этаж", "этап", "эффект", "эффективность", "яблоко", "явление", "язык", "январь",
             "ящик"
     };
-
-    public String[] getWordDefault() {
-        return wordDefault;
-    }
-
-    //private String[] wordUser;
 
 }

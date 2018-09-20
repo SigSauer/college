@@ -9,13 +9,14 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("1\n");
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) System.out.print("X ");
             System.out.println("X ");
         }
 
         System.out.println();
-
+        System.out.println("2\n");
         for (int i = 0; i < 4; i++) {
             if (i == 0 || i == 3)
                 for (int j = 0; j < 4; j++)
@@ -27,6 +28,7 @@ public class Main {
 
         System.out.println();
 
+        System.out.println("3\n");
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if ((i > 0 && i < 3) && (j > 0 && j < 4)) System.out.print("  ");
@@ -36,7 +38,7 @@ public class Main {
         }
 
         System.out.println();
-
+        System.out.println("4\n");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 if (i == 0 || i == 4 || j == 0 || j == 4 || i == j || i + j == 4) System.out.print("X ");
@@ -45,6 +47,7 @@ public class Main {
             System.out.println("  ");
         }
         System.out.println();
+        System.out.println("5\n");
         for (int i = 0; i < 5 ; i++) {
             for (int j = 0; j < 5; j++) {
                 if (i == 4 || j == 0 || i == j) System.out.print("X ");
@@ -55,6 +58,7 @@ public class Main {
 
         }
         System.out.println();
+        System.out.println("6\n");
         for (int i = 0; i <= 4; i++) {
             System.out.println();
             for (int j = 0; j < 5; j++) {
@@ -64,7 +68,7 @@ public class Main {
                     System.out.print("  ");
             }
         }
-        System.out.println("\n");
+        System.out.println("7\n");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 System.out.print("[ "+i+" ; "+j+" ]");

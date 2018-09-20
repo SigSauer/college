@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="210.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.step2.calc.Controller">
+   <children>
+      <Button fx:id="plus" layoutX="31.0" layoutY="65.0" mnemonicParsing="false" onAction="#onPlus" prefHeight="31.0" prefWidth="68.0" text="+" />
+      <Button fx:id="minus" layoutX="138.0" layoutY="65.0" mnemonicParsing="false" onAction="#onMinus" prefHeight="31.0" prefWidth="68.0" text="-" />
+      <Button fx:id="div" layoutX="138.0" layoutY="116.0" mnemonicParsing="false" onAction="#onDiv" prefHeight="31.0" prefWidth="68.0" text="/" />
+      <Button fx:id="mult" layoutX="31.0" layoutY="116.0" mnemonicParsing="false" onAction="#onMult" prefHeight="31.0" prefWidth="68.0" text="x" />
+      <TextField fx:id="frst" layoutX="31.0" layoutY="14.0" prefHeight="31.0" prefWidth="68.0" />
+      <Label fx:id="action" layoutX="99.0" layoutY="19.0" prefHeight="21.0" prefWidth="39.0" />
+      <TextField fx:id="scnd" layoutX="138.0" layoutY="14.0" prefHeight="21.0" prefWidth="68.0" />
+      <Label layoutX="206.0" layoutY="19.0" text="  = " />
+      <TextField fx:id="answr" layoutX="229.0" layoutY="14.0" prefHeight="31.0" prefWidth="68.0" />
+      <Button fx:id="getAnswr" layoutX="231.0" layoutY="90.0" mnemonicParsing="false" onAction="#onAnswer" prefHeight="31.0" prefWidth="68.0" text="=" />
+   </children>
+</AnchorPane>

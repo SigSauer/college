@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 public class Main {
-    private static List<Employee> objectList = new ArrayList<Employee>();
+    private static List<Employee> objectList = new ArrayList<>();
 
     public static void main(String[] args) {
         Main main = new Main();
